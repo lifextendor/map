@@ -1,4 +1,4 @@
-function searchPoi(features) {
+function searchPoi(features, success) {
   if (!features || features.length < 1) {
     return
   }
@@ -16,6 +16,9 @@ function searchPoi(features) {
   let url = `http://restapi.amap.com/v3/place/polygon?key=c673e715513d38b5dd75564d8ec4f717&types=050000&polygon=${points}&keywords=美食&output=json`
   fetch(url).then(data => {
     console.log(data)
+    if (data.status >= 200 && data.status < 400) {
+      success(data.body)
+    }
   })
 }
 

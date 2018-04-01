@@ -37,6 +37,7 @@ function createMap(target) {
     console.log(view.getCenter())
     console.log(view.getZoom())
   })
+  return map
 }
 
 function createVector(map) {
@@ -60,8 +61,8 @@ function createVector(map) {
     })
   })
   return {
-    source: source,
-    vector: vector
+    source,
+    vector
   }
 }
 
@@ -86,8 +87,8 @@ function createMarkers() {
     })
   })
   return {
-    markers: markers,
-    source: source
+    markers,
+    source
   }
 }
 

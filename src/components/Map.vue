@@ -30,8 +30,8 @@ import {
   createVector,
   createMarkers,
   createDraw
-} from './maputils/map.js'
-import { searchPoi } from './maputils/poi.js'
+} from '../maputils/map.js'
+import { searchPoi } from '../maputils/poi.js'
 export default {
   name: 'Map',
   mounted() {
@@ -45,10 +45,14 @@ export default {
   },
   methods: {
     initMap(target) {
-      this.map = createMap(target)
-      let { vector, source } = createVector(this.map)
+      let map = (this.map = createMap(target))
+      let { vector, source } = createVector(map)
+      let { markers } = createMarkers()
       this.vector = vector
       this.source = source
+      this.markers = markers
+      map.addLayer(vector)
+      map.addLayer(markers)
     },
     drawPoint() {
       this.draw = createDraw(this.map, this.source)
@@ -57,7 +61,9 @@ export default {
       if (this.draw) {
         this.draw.setActive(false)
       }
-      searchPoi(this.source.getFeatures())
+      searchPoi(this.source.getFeatures(), data => {
+        this.markers.clear()
+      })
     },
     clear() {
       if (this.draw) {
