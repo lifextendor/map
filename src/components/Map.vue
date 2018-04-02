@@ -37,6 +37,8 @@ export default {
   mounted() {
     let target = this.$refs.myMap
     this.initMap(target)
+    this.resize()
+    document.body.onresize = this.resize.bind(this)
   },
   data() {
     return {
@@ -53,6 +55,11 @@ export default {
       this.markers = markers
       map.addLayer(vector)
       map.addLayer(markers)
+    },
+    resize() {
+      let width = window.innerWidth
+      let height = window.innerHeight
+      this.map.setSize([width, height])
     },
     drawPoint() {
       this.draw = createDraw(this.map, this.source)

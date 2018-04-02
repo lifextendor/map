@@ -12,12 +12,13 @@ import Stroke from 'ol/style/stroke'
 import Circle from 'ol/style/circle'
 import 'ol/ol.css'
 
+const GOOGLE_MAP_URL = 'http://www.google.cn/maps/vt/pb=!1m4!1m3!1i{z}!2i{x}!3i{y}!2m3!1e0!2sm!3i380072576!3m8!2szh-CN!3scn!5e1105!12m4!1e68!2m2!1sset!2sRoadmap!4e0!5m1!1e0'
 function createMap(target) {
   let map = new Map({
     layers: [
       new TileLayer({
         source: new XYZ({
-          url: 'http://t2.supermapcloud.com/FileService/image?map=quanguo&type=web&x={x}&y={y}&z={z}'
+          url: GOOGLE_MAP_URL
         })
       })
     ],
