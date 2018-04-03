@@ -31,6 +31,8 @@ import {
   createMarkers,
   createDraw
 } from '../maputils/map.js'
+import Feature from 'ol/feature'
+import Point from 'ol/geom/point'
 import { searchPoi } from '../maputils/poi.js'
 export default {
   name: 'Map',
@@ -68,8 +70,21 @@ export default {
       if (this.draw) {
         this.draw.setActive(false)
       }
-      searchPoi(this.source.getFeatures(), data => {
-        this.markers.clear()
+      searchPoi(this.source.getFeatures()).then(data => {
+        this.markers.getSource().clear()
+        let pois = data.pois
+        for (let i in pois) {
+          let poi = pois[i].location
+          let xy = poi.split(',')
+          let point = new Point([+xy[0], +xy[1]])
+          point = point.transform('EPSG:4326', 'EPSG:3857')
+          let feature = new Feature({
+            geometry: point,
+            labelPoint: point.clone(),
+            name: pois[i].name
+          })
+          this.markers.getSource().addFeature(feature)
+        }
       })
     },
     clear() {

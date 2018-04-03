@@ -1,4 +1,4 @@
-function searchPoi(features, success) {
+function searchPoi(features) {
   if (!features || features.length < 1) {
     return
   }
@@ -14,10 +14,10 @@ function searchPoi(features, success) {
   points.push(points[0])
   points = points.join('|')
   let url = `http://restapi.amap.com/v3/place/polygon?key=c673e715513d38b5dd75564d8ec4f717&types=050000&polygon=${points}&keywords=美食&output=json`
-  fetch(url).then(data => {
-    console.log(data)
-    if (data.status >= 200 && data.status < 400) {
-      success(data.body)
+  return fetch(url).then(res => {
+    console.log(res)
+    if (res.status >= 200 && res.status < 400) {
+      return res.json()
     }
   })
 }
