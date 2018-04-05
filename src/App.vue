@@ -1,6 +1,5 @@
 <template>
 <el-container>
-  <el-header>地图小工具</el-header>
   <el-main><router-view/></el-main>
 </el-container>
 </template>
@@ -16,8 +15,10 @@ body {
   margin: 0;
 }
 .ol-control.ol-zoom {
-  top: 4.5em;
-  left: .7em;
+  top: inherit;
+  left: inherit;
+  bottom: 2.5em;
+  right: .5em;
 }
 .el-header {
   background-color: #b3c0d1;
@@ -31,13 +32,6 @@ body {
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
   padding: 0;
-  margin-top: -60px;
-}
-
-.el-container {
-  line-height: 320px;
 }
 </style>
