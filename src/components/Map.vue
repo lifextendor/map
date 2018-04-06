@@ -3,7 +3,7 @@
     <div class="step-tools">
       <el-steps :active="active">
         <el-step title="开始" icon="el-icon-time"></el-step>
-        <el-step title="标位置" icon="el-icon-location"></el-step>
+        <el-step title="标位置" icon="map-tools-icons-map-marker-radius"></el-step>
         <el-step title="搜索Poi" icon="el-icon-search"></el-step>
         <el-step title="找最优点" icon="el-icon-success"></el-step>
       </el-steps>

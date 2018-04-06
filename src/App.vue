@@ -1,7 +1,9 @@
 <template>
-<el-container>
-  <el-main><router-view/></el-main>
-</el-container>
+  <el-container>
+    <el-main>
+      <router-view/>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ body {
   top: inherit;
   left: inherit;
   bottom: 2.5em;
-  right: .5em;
+  right: 0.5em;
 }
 .el-header {
   background-color: #b3c0d1;
@@ -33,5 +35,8 @@ body {
   background-color: #e9eef3;
   color: #333;
   padding: 0;
+}
+.el-step__icon-inner.map-tools-icons-map-marker-radius{
+  font-size: 23px;
 }
 </style>

@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'map-tools-icons';
+  src:  url('../fonts/map-tools-icons.eot?bzkjnb');
+  src:  url('../fonts/map-tools-icons.eot?bzkjnb#iefix') format('embedded-opentype'),
+    url('../fonts/map-tools-icons.ttf?bzkjnb') format('truetype'),
+    url('../fonts/map-tools-icons.woff?bzkjnb') format('woff'),
+    url('../fonts/map-tools-icons.svg?bzkjnb#map-tools-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="map-tools-icons-"], [class*=" map-tools-icons-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'map-tools-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.map-tools-icons-cc-marker:before {
+  content: "\e900";
+}
+.map-tools-icons-map-marker:before {
+  content: "\e901";
+}
+.map-tools-icons-map-marker-radius:before {
+  content: "\e902";
+}
