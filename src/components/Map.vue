@@ -12,6 +12,21 @@
       <el-button type="info" icon="el-icon-delete" @click="clear"></el-button>
       <i class="el-icon-loading loading-icon" v-if="isShowLoading"></i>
     </div>
+    <el-dialog title="参数设置" :visible.sync="dialogFormVisible" @close="onDialogClose">
+      <el-form>
+        <el-form-item label="路径类型" :label-width="formLabelWidth">
+          <el-select v-model="type" placeholder="请选择路径类型">
+            <el-option label="驾车" value="1"></el-option>
+            <el-option label="公交" value="2"></el-option>
+            <el-option label="步行" value="3"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -36,7 +51,9 @@ export default {
     return {
       active: 0,
       isButtonDisabled: false,
-      isShowLoading: false
+      isShowLoading: false,
+      type: '1',
+      dialogFormVisible: false
     }
   },
   methods: {
@@ -130,6 +147,9 @@ export default {
       if (this.draw) {
         this.draw.setActive(false)
       }
+      this.dialogFormVisible = true
+    },
+    onDialogClose() {
       this.$message('正在开发中...')
     }
   },
